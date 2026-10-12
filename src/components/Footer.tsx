@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Mail, Smartphone, Award, Lock } from 'lucide-react';
+import { ShieldCheck, Mail, Smartphone, Award, Lock, Phone, MessageCircle } from 'lucide-react';
 import { MONI_COURSE } from '../data/courseData.ts';
 
 interface FooterProps {
@@ -30,9 +30,36 @@ export const Footer: React.FC<FooterProps> = ({
             <p className="text-xs text-slate-400 max-w-sm leading-relaxed">
               Industry-leading digital marketing training, performance ad frameworks, and agency scaling programs. All enrollments verified directly via State Bank of India UPI payments.
             </p>
+            <div className="space-y-1 pt-1">
+              <span className="text-[11px] font-bold text-slate-300 block uppercase tracking-wider">
+                Direct Admissions &amp; Student Enquiry Helpline:
+              </span>
+              <div className="flex items-center gap-3 flex-wrap">
+                <a
+                  href="tel:+917368066550"
+                  className="text-amber-300 hover:text-amber-200 font-mono font-bold flex items-center gap-1 bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-lg"
+                >
+                  <Phone className="w-3.5 h-3.5 text-amber-400" /> +91 73680 66550
+                </a>
+                <a
+                  href="tel:+916287756485"
+                  className="text-amber-300 hover:text-amber-200 font-mono font-bold flex items-center gap-1 bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-lg"
+                >
+                  <Phone className="w-3.5 h-3.5 text-amber-400" /> +91 62877 56485
+                </a>
+                <a
+                  href="https://wa.me/917368066550?text=Hi%2C%20I%20have%20an%20enquiry%20regarding%20Moni%20Digital%20Marketing%20courses"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-1 bg-emerald-950/40 border border-emerald-800/40 px-2.5 py-1 rounded-lg transition"
+                >
+                  <MessageCircle className="w-3.5 h-3.5" /> WhatsApp Desk
+                </a>
+              </div>
+            </div>
             <div className="flex items-center gap-3 pt-2">
               <span className="text-[11px] text-emerald-400 flex items-center gap-1 font-mono">
-                <ShieldCheck className="w-3.5 h-3.5" /> Payee: {MONI_COURSE.payeeUpiId}
+                <ShieldCheck className="w-3.5 h-3.5" /> Payee UPI: {MONI_COURSE.payeeUpiId}
               </span>
             </div>
           </div>
@@ -60,12 +87,12 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => {
-                    const el = document.getElementById('upi-guide-section');
+                    const el = document.getElementById('faq-section');
                     el?.scrollIntoView({ behavior: 'smooth' });
                   }}
                   className="hover:text-white transition"
                 >
-                  UPI Payment Guidelines
+                  Enrollment &amp; Verification FAQs
                 </button>
               </li>
             </ul>

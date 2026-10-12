@@ -12,7 +12,9 @@ import {
   ArrowRight,
   Send,
   HelpCircle,
-  ChevronDown
+  ChevronDown,
+  Phone,
+  MessageCircle
 } from 'lucide-react';
 import { ALL_PRODUCTS, MONI_COURSE } from '../data/courseData.ts';
 import { createOrder } from '../services/orderStorage.ts';
@@ -317,6 +319,19 @@ export const UpiCheckoutModal: React.FC<UpiCheckoutModalProps> = ({
                     <span>I Have Transferred &rarr; Enter Reference ID</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
+
+                  {/* Enquiry helpline */}
+                  <div className="pt-1 text-[11px] text-slate-400 flex items-center justify-between border-t border-slate-800">
+                    <span className="flex items-center gap-1 text-slate-300">
+                      <Phone className="w-3 h-3 text-amber-400" />
+                      Payment Enquiry:
+                    </span>
+                    <div className="flex items-center gap-2 font-mono">
+                      <a href="tel:+917368066550" className="text-amber-300 hover:underline">7368066550</a>
+                      <span>&bull;</span>
+                      <a href="tel:+916287756485" className="text-amber-300 hover:underline">6287756485</a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

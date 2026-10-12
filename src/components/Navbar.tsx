@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, BookOpen, Search, UserCheck, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { Shield, BookOpen, Search, UserCheck, CheckCircle2, ShieldCheck, Phone, MessageCircle } from 'lucide-react';
 import { initAuth, logout } from '../services/firebase.ts';
 import { User } from 'firebase/auth';
 
@@ -34,6 +34,38 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header className="sticky top-0 z-40 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 text-slate-100">
+      {/* Top Admissions & Enquiry Bar */}
+      <div className="bg-gradient-to-r from-blue-950 via-slate-900 to-indigo-950 border-b border-slate-800 text-[11px] py-1.5 px-4 text-slate-300">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1.5">
+          <div className="flex items-center gap-2 flex-wrap justify-center sm:justify-start">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span className="font-semibold text-white">Student Helpline &amp; Enquiry:</span>
+            <a
+              href="tel:+917368066550"
+              className="text-amber-300 hover:text-amber-200 font-mono font-bold transition flex items-center gap-1 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20"
+            >
+              <Phone className="w-3 h-3 text-amber-400" /> +91 73680 66550
+            </a>
+            <span className="text-slate-600 hidden sm:inline">&bull;</span>
+            <a
+              href="tel:+916287756485"
+              className="text-amber-300 hover:text-amber-200 font-mono font-bold transition flex items-center gap-1 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20"
+            >
+              <Phone className="w-3 h-3 text-amber-400" /> +91 62877 56485
+            </a>
+          </div>
+          <div className="flex items-center gap-3 text-slate-400">
+            <a
+              href="https://wa.me/917368066550?text=Hi%2C%20I%20have%20an%20enquiry%20regarding%20Moni%20Digital%20Marketing%20courses"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-1 transition"
+            >
+              <MessageCircle className="w-3 h-3" /> WhatsApp Enquiry
+            </a>
+          </div>
+        </div>
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
@@ -83,7 +115,16 @@ export const Navbar: React.FC<NavbarProps> = ({
               }}
               className="px-3.5 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-lg transition"
             >
-              UPI Payment Guide
+              UPI Guide
+            </button>
+            <button
+              onClick={() => {
+                const el = document.getElementById('faq-section');
+                el?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="px-3.5 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-lg transition"
+            >
+              FAQs
             </button>
             <button
               onClick={onOpenTrackOrder}

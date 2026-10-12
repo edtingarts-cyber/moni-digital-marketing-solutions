@@ -4,6 +4,7 @@ import { CourseHero } from './components/CourseHero.tsx';
 import { ProductCatalogSection } from './components/ProductCatalogSection.tsx';
 import { CurriculumSection } from './components/CurriculumSection.tsx';
 import { UpiPaymentGuideSection } from './components/UpiPaymentGuideSection.tsx';
+import { FAQSection } from './components/FAQSection.tsx';
 import { Footer } from './components/Footer.tsx';
 import { UpiCheckoutModal } from './components/UpiCheckoutModal.tsx';
 import { OrderTrackerModal } from './components/OrderTrackerModal.tsx';
@@ -13,6 +14,7 @@ import { SecurityCenterModal } from './components/SecurityCenterModal.tsx';
 import { getStoredOrders, getActiveStudentOrderId, hasVerifiedCourseAccess } from './services/orderStorage.ts';
 import { MONI_COURSE } from './data/courseData.ts';
 import { Course, Order } from './types/index.ts';
+import { Phone, MessageCircle } from 'lucide-react';
 
 export default function App() {
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
@@ -94,6 +96,12 @@ export default function App() {
           onOpenCheckout={() => handleOpenCheckoutWithProduct(MONI_COURSE)}
           onOpenTrackOrder={() => setIsTrackOrderOpen(true)}
         />
+
+        {/* FAQ Section */}
+        <FAQSection
+          onOpenCheckout={() => handleOpenCheckoutWithProduct(MONI_COURSE)}
+          onOpenTrackOrder={() => setIsTrackOrderOpen(true)}
+        />
       </main>
 
       {/* Footer */}
@@ -141,6 +149,28 @@ export default function App() {
         isOpen={isSecurityCenterOpen}
         onClose={() => setIsSecurityCenterOpen(false)}
       />
+
+      {/* Floating Quick Enquiry Badge */}
+      <div className="fixed bottom-5 right-5 z-40 flex items-center gap-2">
+        <a
+          href="https://wa.me/917368066550?text=Hi%2C%20I%20have%20an%20enquiry%20regarding%20Moni%20Digital%20Marketing%20courses"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-emerald-600 hover:bg-emerald-500 text-white p-3 sm:px-4 sm:py-2.5 rounded-full shadow-2xl flex items-center gap-2 font-bold text-xs transition transform hover:scale-105 border border-emerald-400/30"
+          title="WhatsApp Enquiry: 7368066550"
+        >
+          <MessageCircle className="w-5 h-5" />
+          <span className="hidden sm:inline">WhatsApp Help</span>
+        </a>
+        <a
+          href="tel:+916287756485"
+          className="bg-slate-900/90 hover:bg-slate-800 text-amber-300 p-3 sm:px-4 sm:py-2.5 rounded-full shadow-2xl flex items-center gap-2 font-bold text-xs transition border border-slate-700"
+          title="Call Helpline: 6287756485"
+        >
+          <Phone className="w-4 h-4 text-amber-400" />
+          <span className="hidden sm:inline">Call Helpline</span>
+        </a>
+      </div>
     </div>
   );
 }
